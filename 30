@@ -1,0 +1,17 @@
+class Solution {
+    public int countDigitOne(int n) {
+        int count = 0;
+
+        for (long i = 1; i <= n; i *= 10) {
+            long higher = n / i;
+            long lower = n % i;
+																																				
+            count += (higher + 8) / 10 * i;
+            if (higher % 10 == 1) {
+                count += lower + 1;
+            }
+        }
+
+        return count;
+    }
+}
